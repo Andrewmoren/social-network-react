@@ -3,11 +3,15 @@ import Post from "./Post/Post";
 
 const MyPosts = () => {
   return (
-    <div>
-      My post
+    <div className={ms.postsDescription}>
+      <h3>My post</h3>
       <div>
-        <textarea></textarea>
-        <button>Add post</button>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>Add post</button>
+        </div>
       </div>
       <div className={ms.posts}>
         <Post message="Hi, how are you ?" likecount="10" />
