@@ -1,32 +1,32 @@
 .nav {
     grid-area: n;
-    background-color: #e6ecec
+    background-color: #e6ecec;
+    padding: 0 15px;
 }
 
 .item a.active {
     color: blue;
-    padding-left: 10px;
+
 }
 
 .item {
-    color: black;
-    font-family: sans-serif;
+    border-radius: 5px;
+    padding: 10px 10px;
     font-size: 20px;
-    margin: 10px;
-
-}
-
-
-
-a {
-    color: black;
     text-decoration: none;
+    margin: 10px;
+    color: rgb(14, 13, 13);
+    background: #ffffff;
+    transition: .3s;
+
 
 }
 
 
 
-a:hover {
-    color: blue;
-    text-decoration: underline;
+.item:hover {
+    color: crimson;
+    box-shadow: 0 5px 0 #3C93D5;
+    border-radius: 5px;
+
 }
