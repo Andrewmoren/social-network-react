@@ -10,7 +10,13 @@
     padding: 10px;
 }
 
-.dialog {}
+.dialog {
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 20px;
+
+}
+
 
 .active {
     color: blue;
