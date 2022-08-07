@@ -22,22 +22,9 @@
 
 }
 
-
-
 .item:hover {
     color: crimson;
     box-shadow: 0 5px 0 #3C93D5;
     border-radius: 5px;
 
-}
-
-.itemfriends {
-    border-radius: 5px;
-    padding: 20px 20px;
-    font-size: 20px;
-    text-decoration: none;
-    margin: 20px;
-    color: rgb(14, 13, 13);
-    background: #85a3e5;
-    transition: .3s;
 }
