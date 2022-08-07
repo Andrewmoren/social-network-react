@@ -3,9 +3,10 @@ let state = {
     posts: [
       { id: 1, post: "Hi, how are you ?", likecount: 12 },
       { id: 2, post: "It's my firs post", likecount: 20 },
+      { id: 3, post: "You are good!", likecount: 10 },
     ],
   },
-  messagesPage: {
+  dialogsPage: {
     messages: [
       { id: 1, message: "Hi" },
       { id: 2, message: "How are you?" },
