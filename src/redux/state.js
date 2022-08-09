@@ -30,7 +30,7 @@ let store = {
     return this._state;
   },
 
-  addPost() {
+  _addPost() {
     let newPost = {
       id: 4,
       post: this._state.profilePage.newPostText,
@@ -40,7 +40,7 @@ let store = {
     this._state.state.profilePage.newPostText = "";
     this._callSubscriber(this._state);
   },
-  updateNewPostText(newText) {
+  _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubscriber(this._state);
   },
@@ -49,17 +49,9 @@ let store = {
   },
   dispatch(action) {
     if (action.type === "ADD-POST") {
-      let newPost = {
-        id: 4,
-        post: this._state.profilePage.newPostText,
-        likecount: 0,
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
+      this._addPost();
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
+      this._updateNewPostText(action.newText);
     }
   },
 };
