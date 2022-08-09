@@ -26,7 +26,7 @@ let store = {
   getState() {
     return this._state;
   },
-  renderEntireTree() {
+  _callSubscriber() {
     console.log("State is changed");
   },
   addPost() {
@@ -37,14 +37,14 @@ let store = {
     };
     this._state.profilePage.posts.push(newPost);
     this._state.state.profilePage.newPostText = "";
-    this._renderEntireTree(this._state);
+    this._callSubscriber(this._state);
   },
   updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
-    this._renderEntireTree(this._state);
+    this._callSubscriber(this._state);
   },
   subscribe(observer) {
-    this._renderEntireTree = observer;
+    this._callSubscriber = observer;
   },
 };
 
