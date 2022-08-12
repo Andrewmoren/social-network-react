@@ -81,10 +81,10 @@ export const sendMessageCreator = () => {
     type: SEND_MESSAGE,
   };
 };
-export const updateNewMessageBodyCreator = (text) => {
+export const updateNewMessageBodyCreator = (body) => {
   return {
     type: UPDATE_NEW_MESSAGE_BODY,
-    body: text,
+    body: body,
   };
 };
 
