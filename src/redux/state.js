@@ -28,6 +28,7 @@ let store = {
       ],
       newMessageBody: "",
     },
+    sidebar: {},
   },
   _callSubscriber() {
     console.log("State is changed");
@@ -58,7 +59,7 @@ let store = {
     } else if (action.type === "SEND-MESSAGE") {
       let body = this._state.dialogsPage.newMessageBody;
       this._state.dialogsPage.newMessageBody = "";
-      this.state.dialogsPage.messages.push({ id: 5, message: body });
+      this._state.dialogsPage.messages.push({ id: 5, message: body });
       this._callSubscriber(this._state);
     }
   },
