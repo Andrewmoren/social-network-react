@@ -3,7 +3,7 @@ import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
 } from "../../../redux/profile-reducer";
-import StoreContext from "../../../storeContext";
+import StoreContext from "../../../StoreContext";
 import MyPost from "./MyPosts";
 
 const MyPostsContainer = (props) => {
@@ -12,12 +12,12 @@ const MyPostsContainer = (props) => {
       {(store) => {
         let state = props.store.getState();
         let addPost = () => {
-          props.store.dispatch(addPostActionCreator());
+          store.dispatch(addPostActionCreator());
         };
 
         let onPostChange = (text) => {
           let action = updateNewPostTextActionCreator(text);
-          props.store.dispatch(action);
+          store.dispatch(action);
         };
 
         return (
