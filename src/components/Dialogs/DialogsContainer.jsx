@@ -22,7 +22,7 @@ const DialogsContainer = () => {
         return (
           <Dialogs
             updateNewMessageBody={onNewMessageChange}
-            sendMessag={onSendMessageClick}
+            sendMessage={onSendMessageClick}
             dialogsPage={state}
           />
         );
@@ -38,7 +38,7 @@ let mapStateToProps = (state) => {
 };
 
 let mapDispatchToProps = () => {
-  return {};
+  return { updateNewMessageBody: () => {}, sendMessage: () => {} };
 };
 
 const SuperDialogsContainer = connect(
