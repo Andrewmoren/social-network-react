@@ -5,6 +5,7 @@ import {
 } from "../../../redux/profile-reducer";
 import StoreContext from "../../../StoreContext";
 import MyPost from "./MyPosts";
+import { connect } from "react-redux/es/exports";
 
 const MyPostsContainer = () => {
   return (
@@ -32,5 +33,21 @@ const MyPostsContainer = () => {
     </StoreContext.Consumer>
   );
 };
+
+let mapStateToProps = (state) => {
+  return {
+    posts: profilePage.posts,
+    newPostText: profilePage.newPostText,
+  };
+};
+
+let mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+const SuperMyPostContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyPost);
 
 export default MyPostsContainer;
