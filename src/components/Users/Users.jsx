@@ -1,3 +1,5 @@
+import styles from "./users.module.css";
+
 let Users = (props) => {
   return (
     <div>
@@ -5,7 +7,7 @@ let Users = (props) => {
         <div key={u.id}>
           <span>
             <div>
-              <img />
+              <img src={u.photoUrl} className={styles.userPhoto} />
             </div>
             <div>
               <button>Follow</button>
