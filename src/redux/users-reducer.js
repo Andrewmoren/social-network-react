@@ -1,5 +1,6 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
+const SET_USERS = "SET_USERS";
 
 let initialState = {
   users: [
@@ -30,7 +31,7 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW:
-      let stateCopy = {
+      return {
         ...state,
         users: state.users.map((u) => {
           if (u.id === action.userId) {
@@ -41,6 +42,18 @@ const usersReducer = (state = initialState, action) => {
       };
 
     case UNFOLLOW:
+      return {
+        ...state,
+        users: state.users.map((u) => {
+          if (u.id === action.userId) {
+            return { ...u, followed: false };
+          }
+          return u;
+        }),
+      };
+    case SET_USERS: {
+      return { ...state, users: [...state.users, ...action.users] };
+    }
 
     default:
       return state;
@@ -55,6 +68,11 @@ export const followAC = (userId) => {
 export const unfollowAC = (userId) => {
   {
     type: UNFOLLOW, userId;
+  }
+};
+export const setUsersAC = (user) => {
+  {
+    type: SET_USERS, user;
   }
 };
 
