@@ -3,35 +3,7 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 
 let initialState = {
-  users: [
-    // {
-    //   id: 1,
-    //   photoUrl:
-    //     "https://images.mubicdn.net/images/cast_member/24666/cache-194236-1610749412/image-w856.jpg?size=80x",
-    //   followed: false,
-    //   fullName: "Alex",
-    //   status: "I'am a boss",
-    //   location: { city: "Tallin", country: "Estonia" },
-    // },
-    // {
-    //   id: 2,
-    //   photoUrl:
-    //     "https://images.mubicdn.net/images/cast_member/24666/cache-194236-1610749412/image-w856.jpg?size=80x",
-    //   followed: true,
-    //   fullName: "Alexey",
-    //   status: "I am the master of games",
-    //   location: { city: "Astravets", country: "Estonia" },
-    // },
-    // {
-    //   id: 3,
-    //   photoUrl:
-    //     "https://images.mubicdn.net/images/cast_member/24666/cache-194236-1610749412/image-w856.jpg?size=100x",
-    //   followed: false,
-    //   fullName: "Andrew",
-    //   status: "I like react",
-    //   location: { city: "Minsk", country: "Belarus" },
-    // },
-  ],
+  users: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -78,10 +50,10 @@ export const unfollowAC = (userId) => {
     userId,
   };
 };
-export const setUsersAC = (user) => {
+export const setUsersAC = (users) => {
   return {
     type: SET_USERS,
-    user,
+    users,
   };
 };
 
