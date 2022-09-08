@@ -9,6 +9,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = (props) => {
   return (
@@ -18,7 +19,7 @@ const App = (props) => {
         <Navbar />
         <div className="app-wraper-content">
           <Routes>
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProfileContainer />} />
             <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/news" element={<News />} />
