@@ -43,6 +43,21 @@ let Users = (props) => {
               {u.followed ? (
                 <button
                   onClick={() => {
+                    axios
+                      .delete(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                        {
+                          withCredentials: true,
+                          header: {
+                            "API-KEY": "2fd61b36-0720-41b2-8251-f557940cabd2",
+                          },
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode == 0) {
+                          props.unfollow(u.id);
+                        }
+                      });
                     props.unfollow(u.id);
                   }}
                 >
@@ -62,7 +77,6 @@ let Users = (props) => {
                           props.follow(u.id);
                         }
                       });
-
                     props.follow(u.id);
                   }}
                 >
