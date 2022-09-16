@@ -11,6 +11,7 @@ import {
 import Users from "./Users";
 import * as axios from "axios";
 import Preloader from "../common/Preloader";
+import { getUsers } from "../../redux/api/api";
 
 let mapStateToProps = (state) => {
   return {
@@ -29,16 +30,11 @@ class UsersContainer extends React.Component {
 
   componentDidMount() {
     this.props.toogleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
-      .then((response) => {
-        this.props.toogleIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
-      });
+    getUsers().then((response) => {
+      this.props.toogleIsFetching(false);
+      this.props.setUsers(response.data.items);
+      this.props.setTotalUsersCount(response.data.totalCount);
+    });
   }
 
   onPageChanged = (pageNumber) => {
