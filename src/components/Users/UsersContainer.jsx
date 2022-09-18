@@ -7,6 +7,7 @@ import {
   setCurrentPage,
   setTotalUsersCount,
   toogleIsFetching,
+  toogleFollowingProgress,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import * as axios from "axios";
@@ -20,6 +21,7 @@ let mapStateToProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.toogleFollowingProgress,
   };
 };
 
@@ -60,34 +62,12 @@ class UsersContainer extends React.Component {
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
+          toogleFollowingProgress={this.props.toogleFollowingProgress}
         />
       </>
     );
   }
 }
-
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userId) => {
-//       dispatch(followAC(userId));
-//     },
-//     unfollow: (userId) => {
-//       dispatch(unfollowAC(userId));
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsersAC(users));
-//     },
-//     setCurrentPage: (pageNumber) => {
-//       dispatch(setCurrentPageAC(pageNumber));
-//     },
-//     setTotalUsersCount: (totalCount) => {
-//       dispatch(setUsersTotalCountAC(totalCount));
-//     },
-//     toogleIsFetching: (isFetching) => {
-//       dispatch(toogleIsFetchingAC(isFetching));
-//     },
-//   };
-// };
 
 export default connect(mapStateToProps, {
   follow,
@@ -96,4 +76,5 @@ export default connect(mapStateToProps, {
   setCurrentPage,
   setTotalUsersCount,
   toogleIsFetching,
+  toogleFollowingProgress,
 })(UsersContainer);
