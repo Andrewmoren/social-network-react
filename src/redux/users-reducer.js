@@ -1,3 +1,5 @@
+import { userAPI } from "./api/api";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -112,6 +114,7 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toogleIsFetching(true));
     userAPI.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(setCurrentPage(currentPage));
       dispatch(toogleIsFetching(false));
       dispatch(setUsers(data.items));
       dispatch(setTotalUsersCount(data.totalCount));

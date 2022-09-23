@@ -8,6 +8,7 @@ import {
   setTotalUsersCount,
   toogleIsFetching,
   toogleFollowingProgress,
+  getUsersThunkCreator,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import * as axios from "axios";
@@ -31,23 +32,11 @@ class UsersContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.toogleIsFetching(true);
-    userAPI
-      .getUsers(this.props.currentPage, this.props.pageSize)
-      .then((data) => {
-        this.props.toogleIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
-      });
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    this.props.toogleIsFetching(true);
-    userAPI.getUsers(pageNumber, this.props.pageSize).then((data) => {
-      this.props.toogleIsFetching(false);
-      this.props.setUsers(data.items);
-    });
+    this.props.getUsers(pageNumber, this.props.pageSize);
   };
 
   render() {
@@ -78,4 +67,5 @@ export default connect(mapStateToProps, {
   setTotalUsersCount,
   toogleIsFetching,
   toogleFollowingProgress,
+  getUsers: getUsersThunkCreator,
 })(UsersContainer);
