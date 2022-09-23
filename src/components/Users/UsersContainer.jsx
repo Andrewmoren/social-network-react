@@ -8,7 +8,7 @@ import {
   getUsers,
 } from "../../redux/users-reducer";
 import Users from "./Users";
-import * as axios from "axios";
+
 import Preloader from "../common/Preloader";
 import { userAPI } from "../../redux/api/api";
 
@@ -48,7 +48,6 @@ class UsersContainer extends React.Component {
           users={this.props.users}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
-          toogleFollowingProgress={this.props.toogleFollowingProgress}
           followingInProgress={this.props.followingInProgress}
         />
       </>

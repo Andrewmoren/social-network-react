@@ -35,7 +35,7 @@ let Users = (props) => {
             <div>
               <NavLink to={"/profile/" + u.id}>
                 <img
-                  src={u.photos.small != null ? u.photo.small : userPhoto}
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
                   className={styles.userPhoto}
                 />
               </NavLink>
@@ -45,13 +45,7 @@ let Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toogleFollowingProgress(true, u.id);
-                    userAPI.unfollow(u.id).then((response) => {
-                      if (response.data.resultCode == 0) {
-                        props.unfollow(u.id);
-                      }
-                      props.toogleFollowingProgress(false, u.id);
-                    });
+                    props.unfollow(u.id);
                   }}
                 >
                   Unfollow
@@ -60,14 +54,6 @@ let Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some((id) => id === u.id)}
                   onClick={() => {
-                    props.toogleFollowingProgress(true, u.id);
-                    userAPI.follow(u.id);
-                    axios.then((response) => {
-                      if (response.data.resultCode == 0) {
-                        props.follow(u.id);
-                      }
-                      props.toogleFollowingProgress(false, u.id);
-                    });
                     props.follow(u.id);
                   }}
                 >
