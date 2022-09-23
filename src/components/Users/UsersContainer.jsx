@@ -2,13 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   follow,
-  setUsers,
   unfollow,
   setCurrentPage,
-  setTotalUsersCount,
-  toogleIsFetching,
   toogleFollowingProgress,
-  getUsersThunkCreator,
+  getUsers,
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import * as axios from "axios";
@@ -62,10 +59,7 @@ class UsersContainer extends React.Component {
 export default connect(mapStateToProps, {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalUsersCount,
-  toogleIsFetching,
   toogleFollowingProgress,
-  getUsers: getUsersThunkCreator,
+  getUsers,
 })(UsersContainer);
