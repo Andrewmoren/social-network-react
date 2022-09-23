@@ -10,7 +10,7 @@ let initialState = {
   users: [],
   pageSize: 5,
   totalUsersCount: 0,
-  currentPage: 2,
+  currentPage: 1,
   isFetching: false,
   followingInProgress: [],
 };
@@ -105,6 +105,17 @@ export const toogleFollowingProgress = (isFetching, userId) => {
     type: TOOGLE_IS_FOLLOWING_PROGRESS,
     count: isFetching,
     userId,
+  };
+};
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(toogleIsFetching(true));
+    userAPI.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(toogleIsFetching(false));
+      dispatch(setUsers(data.items));
+      dispatch(setTotalUsersCount(data.totalCount));
+    });
   };
 };
 
