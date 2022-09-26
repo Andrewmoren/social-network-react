@@ -2,6 +2,8 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Dialogs = (props) => {
   let state = props.dialogsPage;
@@ -24,6 +26,12 @@ const Dialogs = (props) => {
     props.updateNewMessageBody(body);
   };
 
+  let navigate = useNavigate();
+  useEffect(() => {
+    if (props.isAuth === false) {
+      return navigate("../login");
+    }
+  }, [props.isAuth]);
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>{dialogsElement}</div>

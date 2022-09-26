@@ -9,6 +9,7 @@ import { connect } from "react-redux/es/exports";
 let mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
+    isAuth: state.auth.isAuth,
   };
 };
 
